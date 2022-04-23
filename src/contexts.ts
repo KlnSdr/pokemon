@@ -8,6 +8,11 @@ const contexts: edomTemplate[][] = [
     // main
     [
         {
+            tag: 'img',
+            classes: ['homeScreenIcon'],
+            src: 'favicon.svg',
+        },
+        {
             tag: 'button',
             children: [
                 {

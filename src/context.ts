@@ -3,8 +3,9 @@ function setContext(context: Contexts) {
     edom.fromTemplate(contexts[context], edom.findById('contextContainer'));
 
     if (context === Contexts.main) {
-        const kinderGarden: edomElement[] =
+        let kinderGarden: edomElement[] =
             edom.findById('contextContainer')?.children!;
+        kinderGarden.shift(); // remove image
         let games: gameState[] = [];
 
         typeNames.forEach((name: string) => {
