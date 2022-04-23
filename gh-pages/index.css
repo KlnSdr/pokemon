@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+:root {
+    --font: #f4fefd;
+    --background: #1b2223;
+    --lighter: #3a4f50;
+    --accent: #0ef6cc;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                          supported by Chrome, Edge, Opera and Firefox */
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: var(--background);
+    color: var(--font);
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    color: var(--font);
+    background-color: var(--lighter);
+    margin: 5px;
+    margin-bottom: 0px;
+    width: calc(75% - 10px);
+    margin-left: 12.5%;
+
+    display: flex;
+    justify-content: space-evenly;
+
+    font-size: medium;
+}
+
+button:hover {
+    background-color: var(--accent);
+    color: var(--lighter);
+}
+
+.topbar {
+    height: 30px;
+}
+
+.topbar button {
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+    margin: 5px;
+}
+
+img {
+    border-radius: 5px;
+    border: 2.5px solid var(--accent);
+    display: block;
+    width: 75%;
+    margin: 5px;
+    margin-left: 12.5%;
+}
+
+.done {
+    color: var(--accent);
+}
+
+h1 {
+    text-align: center;
+    font-size: medium;
+}
+
+#currentMode {
+    top: 5px;
+    position: absolute;
+    font-size: large;
+    text-decoration: underline;
+    color: var(--accent);
+    width: 50%;
+    left: 25%;
+}
+
+#whereAmI {
+    top: 5px;
+    position: absolute;
+    font-size: large;
+    right: 5px;
+}
+
+#resetGame {
+    width: calc(75% + 5px);
+    margin: 5px;
+    margin-left: 12.5%;
+}
+
+.homeScreenIcon {
+    border: none;
+}
