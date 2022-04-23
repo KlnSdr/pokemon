@@ -97,7 +97,7 @@ h1 {
 }
 
 #resetGame {
-    width: 75%;
+    width: calc(75% + 5px);
     margin: 5px;
     margin-left: 12.5%;
 }
