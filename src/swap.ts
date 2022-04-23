@@ -50,6 +50,7 @@ function initSwipSwap(type: ssType) {
                 (edom.findById('img1') as edomImageElement).deleteClick(
                     'click'
                 );
+                edom.findById('currentMode')?.setText(headlines[currentType]);
             });
     }
 }
@@ -77,6 +78,7 @@ function setBest(id: number) {
                 (edom.findById('img1') as edomImageElement).deleteClick(
                     'click'
                 );
+                edom.findById('currentMode')?.setText(headlines[currentType]);
             });
     } else {
         saveState(typeNames[currentType], currentState);
