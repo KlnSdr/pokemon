@@ -1,4 +1,4 @@
 node_modules
 *.js
-!gh-pages/*.js
-gh-pages/*.ts
+!docs/*.js
+docs/*.ts
