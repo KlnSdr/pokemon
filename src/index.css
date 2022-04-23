@@ -11,6 +11,13 @@
     padding: 0px;
     margin: 0px;
     overflow: hidden;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                          supported by Chrome, Edge, Opera and Firefox */
 }
 
 *:focus {
@@ -35,6 +42,8 @@ button {
 
     display: flex;
     justify-content: space-evenly;
+
+    font-size: medium;
 }
 
 button:hover {
@@ -68,4 +77,27 @@ img {
 h1 {
     text-align: center;
     font-size: medium;
+}
+
+#currentMode {
+    top: 5px;
+    position: absolute;
+    font-size: large;
+    text-decoration: underline;
+    color: var(--accent);
+    width: 50%;
+    left: 25%;
+}
+
+#whereAmI {
+    top: 5px;
+    position: absolute;
+    font-size: large;
+    right: 5px;
+}
+
+#resetGame {
+    width: 75%;
+    margin: 5px;
+    margin-left: 12.5%;
 }

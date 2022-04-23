@@ -1,6 +1,7 @@
 enum Contexts {
     main,
     swipSwap,
+    endScreen,
 }
 
 const contexts: edomTemplate[][] = [
@@ -28,7 +29,7 @@ const contexts: edomTemplate[][] = [
                     id: 'click',
                     body: () => {
                         setContext(Contexts.swipSwap);
-                        loadImages(1, 2);
+                        initSwipSwap(ssType.cute);
                     },
                 },
             ],
@@ -55,6 +56,7 @@ const contexts: edomTemplate[][] = [
                     id: 'click',
                     body: () => {
                         setContext(Contexts.swipSwap);
+                        initSwipSwap(ssType.cool);
                     },
                 },
             ],
@@ -81,6 +83,7 @@ const contexts: edomTemplate[][] = [
                     id: 'click',
                     body: () => {
                         setContext(Contexts.swipSwap);
+                        initSwipSwap(ssType.shiny);
                     },
                 },
             ],
@@ -105,6 +108,14 @@ const contexts: edomTemplate[][] = [
                         },
                     ],
                 },
+                {
+                    tag: 'h1',
+                    id: 'currentMode',
+                },
+                {
+                    tag: 'h1',
+                    id: 'whereAmI',
+                },
             ],
         },
         {
@@ -113,21 +124,110 @@ const contexts: edomTemplate[][] = [
             children: [
                 {
                     tag: 'h1',
-                    text: 'Bulbasaur',
+                    id: 'h11',
+                    text: '',
                 },
                 {
                     tag: 'img',
                     id: 'img1',
-                    src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/132.png',
+                    src: '',
+                    handler: [
+                        {
+                            type: 'click',
+                            id: 'click',
+                            body: (self: edomElement) => {
+                                setBest(self.getValue('ID'));
+                            },
+                        },
+                    ],
                 },
                 {
                     tag: 'h1',
-                    text: 'Evesaure',
+                    id: 'h12',
+                    text: '',
                 },
                 {
                     tag: 'img',
                     id: 'img2',
-                    src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/132.png',
+                    src: '',
+                    handler: [
+                        {
+                            type: 'click',
+                            id: 'click',
+                            body: (self: edomElement) => {
+                                setBest(self.getValue('ID'));
+                            },
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+    // endScreen
+    [
+        {
+            tag: 'div',
+            classes: ['topbar'],
+            children: [
+                {
+                    tag: 'button',
+                    classes: ['fa-solid', 'fa-house'],
+                    handler: [
+                        {
+                            type: 'click',
+                            id: 'click',
+                            body: () => {
+                                setContext(Contexts.main);
+                            },
+                        },
+                    ],
+                },
+                {
+                    tag: 'h1',
+                    id: 'currentMode',
+                },
+                {
+                    tag: 'h1',
+                    id: 'whereAmI',
+                },
+            ],
+        },
+        {
+            tag: 'div',
+            classes: ['container'],
+            children: [
+                {
+                    tag: 'h1',
+                    id: 'h11',
+                    text: '',
+                },
+                {
+                    tag: 'img',
+                    id: 'img1',
+                    src: '',
+                    handler: [
+                        {
+                            type: 'click',
+                            id: 'click',
+                            body: (self: edomElement) => {
+                                setBest(self.getValue('ID'));
+                            },
+                        },
+                    ],
+                },
+                {
+                    tag: 'button',
+                    text: 'reset',
+                    id: 'resetGame',
+                    handler: [
+                        {
+                            type: 'click',
+                            id: 'click',
+                            body: () => {
+                                resetCurrentState();
+                            },
+                        },
+                    ],
                 },
             ],
         },
