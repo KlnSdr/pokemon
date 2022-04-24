@@ -98,6 +98,7 @@ h1 {
     right: 5px;
 }
 
+p,
 #resetGame {
     width: calc(75% + 5px);
     margin: 5px;

@@ -47,6 +47,30 @@ function initSwipSwap(type: ssType) {
                 edom.findById('h11')?.setText(
                     data.name + '#' + currentState.currentBest.toString()
                 );
+                edom.findById('pType')?.setText(
+                    'type: ' +
+                        ((
+                            typeObject: {
+                                slot: number;
+                                type: { name: string; url: string };
+                            }[]
+                        ) => {
+                            let text: string = '';
+                            typeObject.forEach(
+                                (type: {
+                                    slot: number;
+                                    type: { name: string; url: string };
+                                }) => {
+                                    text += type.type.name + '/';
+                                }
+                            );
+
+                            text = text.substring(0, text.length - 1);
+                            return text;
+                        })(data['types'])
+                );
+                edom.findById('pWeight')?.setText('weight: ' + data['weight']);
+                edom.findById('pHeight')?.setText('height: ' + data['height']);
                 (edom.findById('img1') as edomImageElement).deleteClick(
                     'click'
                 );

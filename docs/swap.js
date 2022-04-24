@@ -29,11 +29,22 @@ function initSwipSwap(type) {
             currentState.currentBest.toString())
             .then((response) => response.json())
             .then((data) => {
-            var _a, _b;
+            var _a, _b, _c, _d, _e;
             edom.findById('img1').setSrc(data.sprites['other']['home']['front_default']);
             (_a = edom.findById('h11')) === null || _a === void 0 ? void 0 : _a.setText(data.name + '#' + currentState.currentBest.toString());
+            (_b = edom.findById('pType')) === null || _b === void 0 ? void 0 : _b.setText('type: ' +
+                ((typeObject) => {
+                    let text = '';
+                    typeObject.forEach((type) => {
+                        text += type.type.name + '/';
+                    });
+                    text = text.substring(0, text.length - 1);
+                    return text;
+                })(data['types']));
+            (_c = edom.findById('pWeight')) === null || _c === void 0 ? void 0 : _c.setText('weight: ' + data['weight']);
+            (_d = edom.findById('pHeight')) === null || _d === void 0 ? void 0 : _d.setText('height: ' + data['height']);
             edom.findById('img1').deleteClick('click');
-            (_b = edom.findById('currentMode')) === null || _b === void 0 ? void 0 : _b.setText(headlines[currentType]);
+            (_e = edom.findById('currentMode')) === null || _e === void 0 ? void 0 : _e.setText(headlines[currentType]);
         });
     }
 }

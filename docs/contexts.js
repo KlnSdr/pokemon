@@ -222,6 +222,21 @@ const contexts = [
                     ],
                 },
                 {
+                    tag: 'p',
+                    id: 'pType',
+                    text: 'type:',
+                },
+                {
+                    tag: 'p',
+                    id: 'pWeight',
+                    text: 'weight:',
+                },
+                {
+                    tag: 'p',
+                    id: 'pHeight',
+                    text: 'height:',
+                },
+                {
                     tag: 'button',
                     text: 'reset',
                     id: 'resetGame',
