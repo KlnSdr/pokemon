@@ -12,7 +12,7 @@ function setContext(context: Contexts) {
             games.push(getState(name));
         });
 
-        for (let i = 0; i < kinderGarden.length; i++) {
+        for (let i = 0; i < kinderGarden.length - 1; i++) {
             if (games[i].finished) {
                 kinderGarden[i].children[0].applyStyle('done');
                 kinderGarden[i].children[2].applyStyle('done');

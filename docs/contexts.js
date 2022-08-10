@@ -4,6 +4,7 @@ var Contexts;
     Contexts[Contexts["main"] = 0] = "main";
     Contexts[Contexts["swipSwap"] = 1] = "swipSwap";
     Contexts[Contexts["endScreen"] = 2] = "endScreen";
+    Contexts[Contexts["types"] = 3] = "types";
 })(Contexts || (Contexts = {}));
 const contexts = [
     // main
@@ -90,6 +91,32 @@ const contexts = [
                     body: () => {
                         setContext(Contexts.swipSwap);
                         initSwipSwap(ssType.shiny);
+                    },
+                },
+            ],
+        },
+        {
+            tag: 'button',
+            children: [
+                {
+                    tag: 'span',
+                    classes: ['fa-solid', 'fa-burst'],
+                },
+                {
+                    tag: 'span',
+                    text: 'weaknesses',
+                },
+                {
+                    tag: 'span',
+                    classes: ['fa-solid', 'fa-burst'],
+                },
+            ],
+            handler: [
+                {
+                    type: 'click',
+                    id: 'click',
+                    body: () => {
+                        setContext(Contexts.types);
                     },
                 },
             ],
@@ -253,4 +280,140 @@ const contexts = [
             ],
         },
     ],
+    // types
+    [
+        {
+            tag: 'div',
+            classes: ['topbar'],
+            children: [
+                {
+                    tag: 'button',
+                    classes: ['fa-solid', 'fa-house'],
+                    handler: [
+                        {
+                            type: 'click',
+                            id: 'click',
+                            body: () => {
+                                setContext(Contexts.main);
+                            },
+                        },
+                    ],
+                },
+                {
+                    tag: 'h1',
+                    id: 'currentMode',
+                },
+                {
+                    tag: 'h1',
+                    id: 'whereAmI',
+                },
+            ],
+        },
+        {
+            tag: 'div',
+            classes: ['container', 'weak'],
+            children: [
+                {
+                    tag: 'p',
+                    text: 'types:',
+                },
+                {
+                    tag: 'div',
+                    classes: ['containerTypes'],
+                    children: genTypeButtons(),
+                },
+                {
+                    tag: 'hr',
+                },
+                {
+                    tag: 'div',
+                    children: [
+                        {
+                            tag: 'details',
+                            children: [
+                                {
+                                    tag: 'summary',
+                                    text: 'double weakness:',
+                                },
+                                {
+                                    tag: 'ul',
+                                    id: 'double',
+                                },
+                            ],
+                        },
+                        {
+                            tag: 'details',
+                            children: [
+                                {
+                                    tag: 'summary',
+                                    text: 'super effective:',
+                                },
+                                {
+                                    tag: 'ul',
+                                    id: 'super',
+                                },
+                            ],
+                        },
+                        {
+                            tag: 'details',
+                            children: [
+                                {
+                                    tag: 'summary',
+                                    text: 'not very effective:',
+                                },
+                                {
+                                    tag: 'ul',
+                                    id: 'not',
+                                },
+                            ],
+                        },
+                        {
+                            tag: 'details',
+                            children: [
+                                {
+                                    tag: 'summary',
+                                    text: 'immune:',
+                                },
+                                {
+                                    tag: 'ul',
+                                    id: 'immune',
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
 ];
+function genTypeButtons() {
+    let bttns = [];
+    Object.keys(types).forEach((typ) => {
+        bttns.push({
+            tag: 'button',
+            text: typ,
+            classes: ['smolBttn'],
+            handler: [
+                {
+                    type: 'click',
+                    id: 'click',
+                    body: (self) => {
+                        typeButtonsState(self);
+                    },
+                },
+            ],
+        });
+    });
+    return bttns;
+}
+function typeButtonsState(self) {
+    const isActive = self.getValue('state') || false;
+    self.setValue('state', !isActive);
+    if (isActive) {
+        self.removeStyle('active');
+    }
+    else {
+        self.applyStyle('active');
+    }
+    refreshConters();
+}

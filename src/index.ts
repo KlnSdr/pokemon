@@ -2,7 +2,7 @@ function startup() {
     edom.init();
     createContextContainer();
 
-    if (localStorage.getItem("pokemon") === null) {
+    if (localStorage.getItem('pokemon') === null) {
         initState();
     }
 

@@ -47,9 +47,22 @@ button {
     font-size: medium;
 }
 
-button:hover {
+button:hover,
+.active {
     background-color: var(--accent);
     color: var(--lighter);
+}
+
+.smolBttn,
+.active:hover {
+    width: unset;
+    display: unset;
+    margin: 5px;
+}
+
+.containerTypes {
+    flex-direction: column;
+    align-content: space-around;
 }
 
 .topbar {
@@ -107,4 +120,21 @@ p,
 
 .homeScreenIcon {
     border: none;
+}
+
+.weak {
+    overflow-y: scroll !important;
+}
+
+.weak p {
+    margin: 5px;
+}
+
+.weak li {
+    margin-left: 12.5%;
+    list-style-type: circle;
+}
+
+details {
+    margin: 5px;
 }
