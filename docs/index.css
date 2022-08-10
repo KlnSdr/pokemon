@@ -47,7 +47,6 @@ button {
     font-size: medium;
 }
 
-button:hover,
 .active {
     background-color: var(--accent);
     color: var(--lighter);
